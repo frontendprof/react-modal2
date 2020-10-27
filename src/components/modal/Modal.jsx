@@ -6,13 +6,17 @@ import "./Modal.css";
 
 
 
-export const Modal = () => {
+export const Modal = ({show,closeHandler}) => {
     return (
-        <div className="modal-wrapper">
+        <div className="modal-wrapper"
+        style={{opacity:show?"1":"0", 
+        transform:show?"translateY(0vh)":"translateY(-80vh)"
+    }}
+        >
             
             <div className="modal-header">
                 <p>Welcome to our site</p>
-                <span className="close-modal-btn">X</span>
+                <span className="close-modal-btn" onClick={closeHandler}>X</span>
             </div>
 
             <div className="modal-content">
@@ -24,7 +28,7 @@ export const Modal = () => {
                 </div>
 
                 <div className="modal-footer">
-                    <button className="btn-cancel">Close</button>
+                    <button className="btn-cancel" onClick={closeHandler}>Close</button>
                 </div>
 
             </div>
